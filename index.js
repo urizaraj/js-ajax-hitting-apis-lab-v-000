@@ -20,7 +20,7 @@ function showRepositories(event, data) {
       `data-username="${r.owner.login}"`,
       'onclick="getCommits(this)"'
     ]
-    return `<a ${attributes.join(' ')}>${r.name} - Get Commits</a>`
+    return `<li>${r.name}<br><a ${attributes.join(' ')}>Get Commits</a></li>`
   }).join('')
 
   const repoList = `<ul>${ repostring }</ul>`
@@ -30,9 +30,10 @@ function showRepositories(event, data) {
 function getCommits(el) {
   const name = el.dataset.repo
   const username = el.dataset.username
+  console.log(el.dataset)
   const req = new XMLHttpRequest()
   req.addEventListener("load", displayCommits)
-  req.open("GET", `https://api.github.com/repos/${ curusername }/${ name }/commits`)
+  req.open("GET", `https://api.github.com/repos/${ username }/${ name }/commits`)
   req.send()
 }
 
