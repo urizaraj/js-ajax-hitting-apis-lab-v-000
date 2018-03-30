@@ -41,20 +41,5 @@ function displayCommits() {
   const commits = JSON.parse(this.responseText)
   const commitString = commits.map(commit => '<li><strong>' + commit.author.login + '</strong> - ' + commit.commit.message + '</li>').join('')
   const commitsList = `<ul>${ commitString }</ul>`
-  document.getElementById("commits").innerHTML = commitsList
-}
-
-function getCommits(el) {
-  const name = el.dataset.repo
-  const req = new XMLHttpRequest()
-  req.addEventListener("load", displayCommits)
-  req.open("GET", `https://api.github.com/repos/${ curusername }/${ name }/commits`)
-  req.send()
-}
-
-function displayCommits() {
-  const commits = JSON.parse(this.responseText)
-  const commitString = commits.map(commit => '<li><strong>' + commit.author.login + '</strong> - ' + commit.commit.message + '</li>').join('')
-  const commitsList = `<ul>${ commitString }</ul>`
-  document.getElementById("commits").innerHTML = commitsList
+  document.getElementById("details").innerHTML = commitsList
 }
