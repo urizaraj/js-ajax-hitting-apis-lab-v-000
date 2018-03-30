@@ -1,4 +1,5 @@
 const usernameField = document.getElementById('username')
+let curusername = ''
 
 function getRepositories() {
   let username = usernameField.value
@@ -17,4 +18,12 @@ function showRepositories(event, data) {
   let repostring = array.join('')
   const repoList = `<ul>${ repostring }</ul>`
   document.getElementById("repositories").innerHTML = repoList
+}
+
+function getCommits(el) {
+  const name = el.dataset.repo
+  const req = new XMLHttpRequest()
+  req.addEventListener("load", showCommits)
+  req.open("GET", 'https://api.github.com/repos/octocat/' + name + '/commits')
+  req.send()
 }
