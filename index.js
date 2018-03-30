@@ -34,7 +34,7 @@ function displayRepositories(event, data) {
       'Get Commits',
       '</a>',
       '</li>'
-    ].join(' ')
+    ].join('')
   }).join('')
 
   const repoList = `<ul>${ repostring }</ul>`
