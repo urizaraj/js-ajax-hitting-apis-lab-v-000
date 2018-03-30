@@ -1,4 +1,4 @@
-const usernameField = document.getElementByID('username')
+const usernameField = document.getElementById('username')
 
 function getRepositories() {
   let username = usernameField.value
