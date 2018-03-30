@@ -22,11 +22,11 @@ function displayRepositories(event, data) {
     ]
     return [
       '<li>',
-      '<a href="'
+      '<a href="',
       r.url,
-      '" >'
+      '" >',
       r.name,
-      '</a>'
+      '</a>',
       '<br>',
       '<a ',
       attributes.join(' '),
