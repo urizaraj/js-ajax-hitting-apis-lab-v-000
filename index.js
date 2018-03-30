@@ -66,7 +66,7 @@ function displayCommits() {
     ].join('')
   }).join('')
   const commitsList = `<ul>${ commitString }</ul>`
-  document.getElementById("details").innerHTML = commitsList
+  details.innerHTML = commitsList
 }
 
 function getBranches(el) {
@@ -80,5 +80,8 @@ function getBranches(el) {
 
 function displayBranches() {
   const branches = JSON.parse(this.responseText)
-
+  details.innerHTML = ''
+  branches.forEach(branch => {
+    details.innerHTML += '<div>' + branch.name + '</div>'
+  })
 }
