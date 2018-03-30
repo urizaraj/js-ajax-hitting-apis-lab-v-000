@@ -16,7 +16,7 @@ function displayRepositories(event, data) {
   let repostring = repos.map(r => {
     let attributes = [
       'href="#"',
-      `data-repo="${r.name}"`,
+      `data-repository="${r.name}"`,
       `data-username="${r.owner.login}"`,
       'onclick="getCommits(this)"'
     ]
