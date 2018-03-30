@@ -11,13 +11,10 @@ function getRepositories() {
 function showRepositories(event, data) {
   let repos = JSON.parse(this.responseText)
   console.log(repos)
-  const repoList = `<ul>${repos.map(r => '<li>' + r.name + ' - <a href="#" data-repo="' + r.name + '" onclick="getCommits(this)">Get Commits</a></li>').join('')}</ul>`
+  let array = repos.map(r => {
+    '<li>' + r.name + ' - <a href="#" data-repo="' + r.name + '" onclick="getCommits(this)">Get Commits</a></li>'
+  })
+  let repostring = array.join('')
+  const repoList = `<ul>${ repostring }</ul>`
   document.getElementById("repositories").innerHTML = repoList
 }
-
-`<ul>${}</ul>`
-
-array = repos.map(r => {
-  '<li>' + r.name + ' - <a href="#" data-repo="' + r.name + '" onclick="getCommits(this)">Get Commits</a></li>'
-})
-string = array.join('')
