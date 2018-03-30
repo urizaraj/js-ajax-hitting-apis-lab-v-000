@@ -1,5 +1,6 @@
 const usernameField = document.getElementById('username')
 let curusername = ''
+const details = document.getElementById("details")
 
 function getRepositories() {
   let username = usernameField.value
