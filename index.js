@@ -20,7 +20,21 @@ function displayRepositories(event, data) {
       `data-username="${r.owner.login}"`,
       'onclick="getCommits(this)"'
     ]
-    return `<li>${r.name}<br><a ${attributes.join(' ')}>Get Commits</a></li>`
+    return [
+      '<li>',
+      '<a href="'
+      r.url,
+      '" >'
+      r.name,
+      '</a>'
+      '<br>',
+      '<a ',
+      attributes.join(' '),
+      '>',
+      'Get Commits',
+      '</a>',
+      '</li>'
+    ]
   }).join('')
 
   const repoList = `<ul>${ repostring }</ul>`
